@@ -7,18 +7,29 @@
 </head>
 <body>
     <nav>
-        <a href="{% url 'home' %}">Home</a>
-
-        {% if user.is_authenticated %}
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+        <div>
+            <form method='GET'>
+                <input type="text" name='user_search' placeholder='Search Title, Actor, director ...'>
+                <button type='submit'>Search</button>
+            </form>
+        </div>
+        <div>
+            {% if user.is_authenticated %}
             <span>Hello {{ user.username }}</span>
             <a href="{% url 'logout' %}">Logout</a>
         {% else %}
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'register' %}">Sign Up</a>
         {% endif %}
+        </div>
     </nav>
     {% block content %}
     {% endblock %}
     
 </body>
 </html>
+
+

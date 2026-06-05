@@ -8,6 +8,17 @@
 
 {% block content %}
     <h1>welcome to home page</h1>
+
+    {% if result %}
+    <ul>
+        {% for item in result%}
+            <li>{{item}}</li>
+        {%endfor%}
+
+    </ul>
+    {% endif%}
+
+
 {% endblock %}
 
 
